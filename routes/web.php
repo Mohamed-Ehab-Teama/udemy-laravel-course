@@ -1,18 +1,34 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SingleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function() {
-    return "We are in Test Route";
-});
+// Route::get('/say', [PostController::class,'say']);
+// Route::get('/wel', [PostController::class,'welcome']);
+// Route::get('/invok', SingleController::class);
 
-Route::get( '/printName/{name?}' , function($name = 'User'){
-    return " Hello $name ";
-} );
+// Route Resources
+// Route::resource('users',UserController::class);
+
+// Partial Resources
+// Route::resource('users',UserController::class)->only(['index','create','store']);
+// Route::resource('users', UserController::class)->except(['destroy', 'edit']);
+
+
+
+// Route::get('/test', function() {
+//     return "We are in Test Route";
+// });
+
+// Route::get( '/printName/{name?}' , function($name = 'User'){
+//     return " Hello $name ";
+// } );
 
 // --------------------------------------------
 // Syntax   =>  Route::method( URI, action )
@@ -31,8 +47,8 @@ Route::get( '/printName/{name?}' , function($name = 'User'){
 // Short-hand Routes    =>  
     // Route::view( URI, VIEW )
     // Route::redirect( URI, Destination )
-Route::view('/welcome', 'welcome');
-Route::redirect( '/new', '/test' );
+// Route::view('/welcome', 'welcome');
+// Route::redirect( '/new', '/test' );
 
 // --------------------------------------------
 // Route Parameters
