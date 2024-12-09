@@ -14,7 +14,13 @@ Route::get('/', function () {
 // Route::get('/invok', SingleController::class);
 
 // Route Resources
-// Route::resource('users',UserController::class);
+Route::resource('users',UserController::class);
+
+
+// Using the MiddleWare:
+// Route::resource('users',UserController::class)->middleware(\App\Http\Middleware\CheckIfNameIsAhmed::class);
+// Route::resource('users',UserController::class)->middleware('check_ahmed');
+
 
 // Partial Resources
 // Route::resource('users',UserController::class)->only(['index','create','store']);
@@ -74,8 +80,8 @@ Route::get('/', function () {
 
 // --------------------------------------------
 // Route Groups
-// Route::controller(TestController::class)->prefix('/test')->name('test')->group( function() {
-//     Route::method( URI , action )
+// Route::controller(UserController::class)->prefix('/test')->name('test')->middleware('check_ahmed')->group( function() {
+    // Route::method( URI , action )
 //     Route::get( '/edit', 'update' );
 //     Route::get( '/exit', 'delete' );
 // });
