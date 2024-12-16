@@ -2,12 +2,16 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SingleController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', [TestController::class, 'testAction']);
+Route::get('/test2', [TestController::class, 'testAction2'])->name('testAct2');
 
 // Route::get('/say', [PostController::class,'say']);
 // Route::get('/wel', [PostController::class,'welcome']);
